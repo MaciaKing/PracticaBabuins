@@ -1,0 +1,2 @@
+monitorcorda.adb:15:10: warning: potentially blocking operation in protected operation [enabled by default]
+monitorcorda.adb:29:10: warning: potentially blocking operation in protected operation [enabled by default]
