@@ -31,6 +31,7 @@ procedure Main is
       accept Start (Idx : in Integer) do
          My_Idx:= Idx;
       end Start;
+      C.entraCorda(
       c.goNord(My_Idx);
    end babuiSud;
 
@@ -40,7 +41,6 @@ procedure Main is
    babuinsNord: tbabuiNord;
    babuinsSud: tbabuiSud;
 begin
-   --  Insert code here.
    for idx in 0..3-1 loop
        Put_Line ("BON DIA som el babuí nord " & idx'Img & " vaig cap el Sud" );
        babuinsNord(idx).Start(idx);

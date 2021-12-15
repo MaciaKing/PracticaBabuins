@@ -10,10 +10,7 @@ package body MonitorCorda is
          babuinsALaCordaN:=babuinsALaCordaN+1;
          Put_Line("***** A la corda n'hi ha " & babuinsALaCordaN'Img & " direcció Sud. *****");
          Put_Line ("Nord " & idx'Img & ": És a la corda i travessa cap al Sud");
-         --SC
-         --Es a la corda
-         delay 5.0;
-         --Arriba al sud
+
          babuinsALaCordaN:=babuinsALaCordaN-1;
          Put_Line ("Nord " & idx'Img & ": ha arribat a la vorera");
 
@@ -24,14 +21,21 @@ package body MonitorCorda is
          babuinsALaCordaS:=babuinsALaCordaS+1;
          Put_Line("***** A la corda n'hi ha " & babuinsALaCordaS'Img & " direcció Nord. ******");
          Put_Line ("/t Sud " & idx'Img & ": És a la corda i travessa cap al Nord");
-         --SC
-         --Es a la corda
-         delay 5.0;
-         --Arriba al nord
+
          babuinsALaCordaS:=babuinsALaCordaS-1;
          Put_Line ("/t Sud " & idx'Img & ": ha arribat a la vorera");
       end goNord;
 
+      entry entraCorda when  is
+      begin
+         null;
+      end entraCorda;
+
+
+      entry surtCorda when is
+      begin
+         null;
+      end surtCorda;
 
    end Corda;
 
