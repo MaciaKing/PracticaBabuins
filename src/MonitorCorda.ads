@@ -1,15 +1,15 @@
 package MonitorCorda is
 
    protected type Corda is
-      entry goSud(idx: in Integer);
-      entry goNord(idx: in Integer);
-      entry entraCorda;
-      entry surtCorda;
+      entry goSud;
+      entry goNord;
+      entry arriveNord;
+      entry arriveSud;
 
    private
       CAPACITAT: Integer :=3; --Indica la quantitat màxima de babuins a la corda
-      babuinsALaCordaN: Integer:=0;
-      babuinsALaCordaS: Integer:=0;
+      babuinsALaCordaN: Integer:=0; -- Indica la quantitat de babuins a la corda que van cap al Nord
+      babuinsALaCordaS: Integer:=0; -- Indica la quantitat de babuins a la corda que van cap al Sud
    end Corda;
 
 end MonitorCorda;

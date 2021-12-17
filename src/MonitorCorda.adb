@@ -4,38 +4,31 @@ use Ada.Text_IO;
 package body MonitorCorda is
 
    protected body Corda is
-
-      entry goSud(idx:in Integer) when ((babuinsALaCordaN<capacitatCorda) and babuinsALaCordaS=0) is
+      --Aquí entren els babuins del Nord
+      entry goSud when ((babuinsALaCordaN<CAPACITAT) and babuinsALaCordaS=0) is
       begin
          babuinsALaCordaN:=babuinsALaCordaN+1;
          Put_Line("***** A la corda n'hi ha " & babuinsALaCordaN'Img & " direcció Sud. *****");
-         Put_Line ("Nord " & idx'Img & ": És a la corda i travessa cap al Sud");
-
-         babuinsALaCordaN:=babuinsALaCordaN-1;
-         Put_Line ("Nord " & idx'Img & ": ha arribat a la vorera");
-
       end goSud;
 
-      entry goNord(idx:in Integer) when ((babuinsALaCordaS<capacitatCorda) and babuinsALaCordaN=0) is
+      --Aqui entren els babuins del Sud
+      entry goNord when ((babuinsALaCordaS<CAPACITAT) and babuinsALaCordaN=0) is
       begin
          babuinsALaCordaS:=babuinsALaCordaS+1;
-         Put_Line("***** A la corda n'hi ha " & babuinsALaCordaS'Img & " direcció Nord. ******");
-         Put_Line ("/t Sud " & idx'Img & ": És a la corda i travessa cap al Nord");
-
-         babuinsALaCordaS:=babuinsALaCordaS-1;
-         Put_Line ("/t Sud " & idx'Img & ": ha arribat a la vorera");
+         Put_Line("++++++ A la corda n'hi ha " & babuinsALaCordaS'Img & " direcció Nord. ++++++");
       end goNord;
 
-      entry entraCorda when  is
+      entry arriveNord when  True is --SEMPRE TRUE
       begin
-         null;
-      end entraCorda;
+         babuinsALaCordaN:=babuinsALaCordaN-1;
+      end arriveNord;
 
 
-      entry surtCorda when is
+      entry arriveSud when True  is --SEMPRE TRUE
       begin
-         null;
-      end surtCorda;
+         babuinsALaCordaS:=babuinsALaCordaS-1;
+      end arriveSud;
+
 
    end Corda;
 
