@@ -16,9 +16,9 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_ATTRIBUTES
 RV NO_IMPLEMENTATION_PRAGMAS
-RV MAX_PROTECTED_ENTRIES=4
+RV MAX_PROTECTED_ENTRIES=2
 
-U monitorcorda%b	monitorcorda.adb	5e9774b6 NE OO PK
+U monitorcorda%b	monitorcorda.adb	1f8de617 NE OO PK
 W ada%s			ada.ads			ada.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
@@ -30,7 +30,7 @@ Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
 Z system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
 Z system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
 
-U monitorcorda%s	monitorcorda.ads	fbd8f056 EE NE OO PK
+U monitorcorda%s	monitorcorda.ads	b22a2def EE NE OO PK
 Z ada.exceptions%s	a-except.adb		a-except.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z system%s		system.ads		system.ali
@@ -53,8 +53,8 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D monitorcorda.ads	20211217142622 fbd8f056 monitorcorda%s
-D monitorcorda.adb	20211217150228 0bbb518d monitorcorda%b
+D monitorcorda.ads	20211220143402 b22a2def monitorcorda%s
+D monitorcorda.adb	20211220151802 03531e95 monitorcorda%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-conca3.ads		20210520051132 0b705ca5 system.concat_3%s
@@ -89,8 +89,12 @@ D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z s b [gosud monitorcorda__corda 4 13 none]
 G c Z s b [gonord monitorcorda__corda 5 13 none]
-G c Z s b [arrivenord monitorcorda__corda 6 13 none]
-G c Z s b [arrivesud monitorcorda__corda 7 13 none]
+G c Z s b [arrivenord monitorcorda__corda 6 17 none]
+G c Z s b [arrivesud monitorcorda__corda 7 17 none]
+G c Z s b [corda__arrivenordN monitorcorda 6 7 none]
+G c Z s b [corda__arrivenordP monitorcorda 6 7 none]
+G c Z s b [corda__arrivesudN monitorcorda 7 7 none]
+G c Z s b [corda__arrivesudP monitorcorda 7 7 none]
 G c Z s s [cordaVDI monitorcorda 3 4 none]
 G c Z s s [cordaVDF monitorcorda 3 4 none]
 G c Z s s [cordaVIP monitorcorda 3 4 none]
@@ -98,17 +102,17 @@ X 1 ada.ads
 16K9*Ada 20e8 17|1r6 2r5
 X 10 a-textio.ads
 58K13*Text_IO 725e16 17|1w10 2r9
-506U14*Put_Line 17|11s10 18s10
+506U14*Put_Line 17|11s10 24s10
 X 16 monitorcorda.ads
-1K9*MonitorCorda 15l5 15e17 17|4b14 35l5 35t17
-3W19*Corda 10E7 13l8 13e13 17|6b19 33l8 33t13
+1K9*MonitorCorda 15l5 15e17 17|4b14 38l5 38t17
+3W19*Corda 10E7 13l8 13e13 17|6b19 36l8 36t13
 4Y13 goSud 17|8b13 12l11 12t16
-5Y13 goNord 17|15b13 19l11 19t17
-6Y13 arriveNord 17|21b13 24l11 24t21
-7Y13 arriveSud 17|27b13 30l11 30t20
-10i7 CAPACITAT{integer} 17|8r43 15r44
-11i7 babuinsALaCordaN{integer} 17|8r26 10r10 10r28 11r49 15r59 23r10 23r28
-12i7 babuinsALaCordaS{integer} 17|8r58 15r27 17r10 17r28 18r50 29r10 29r28
+5Y13 goNord 17|21b13 25l11 25t17
+6U17 arriveNord 17|28b17 31l11 31t21
+7U17 arriveSud 17|15b17 18l11 18t20
+10i7 CAPACITAT{integer} 17|8r43 21r44
+11i7 babuinsALaCordaN{integer} 17|8r26 10r10 10r28 11r49 17r10 17r28 21r59
+12i7 babuinsALaCordaS{integer} 17|8r58 21r27 23r10 23r28 24r50 30r10 30r28
 X 34 s-stausa.ads
 208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
 273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22

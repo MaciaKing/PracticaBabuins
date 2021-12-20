@@ -11,6 +11,12 @@ package body MonitorCorda is
          Put_Line("***** A la corda n'hi ha " & babuinsALaCordaN'Img & " direcció Sud. *****");
       end goSud;
 
+      --Aquí entren els babuins del Nord
+      procedure arriveSud is
+      begin
+         babuinsALaCordaN:=babuinsALaCordaN-1;
+      end arriveSud;
+
       --Aqui entren els babuins del Sud
       entry goNord when ((babuinsALaCordaS<CAPACITAT) and babuinsALaCordaN=0) is
       begin
@@ -18,16 +24,13 @@ package body MonitorCorda is
          Put_Line("++++++ A la corda n'hi ha " & babuinsALaCordaS'Img & " direcció Nord. ++++++");
       end goNord;
 
-      entry arriveNord when  True is --SEMPRE TRUE
+      --Aqui entren els babuins del Sud
+      procedure arriveNord  is
       begin
-         babuinsALaCordaN:=babuinsALaCordaN-1;
+         babuinsALaCordaS:=babuinsALaCordaS-1;
       end arriveNord;
 
 
-      entry arriveSud when True  is --SEMPRE TRUE
-      begin
-         babuinsALaCordaS:=babuinsALaCordaS-1;
-      end arriveSud;
 
 
    end Corda;

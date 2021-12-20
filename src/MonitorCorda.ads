@@ -3,8 +3,8 @@ package MonitorCorda is
    protected type Corda is
       entry goSud;
       entry goNord;
-      entry arriveNord;
-      entry arriveSud;
+      procedure arriveNord;
+      procedure arriveSud;
 
    private
       CAPACITAT: Integer :=3; --Indica la quantitat màxima de babuins a la corda
