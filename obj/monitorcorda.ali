@@ -54,7 +54,7 @@ D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
 D monitorcorda.ads	20211220143402 b22a2def monitorcorda%s
-D monitorcorda.adb	20211220151802 03531e95 monitorcorda%b
+D monitorcorda.adb	20211228164216 03531e95 monitorcorda%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-conca3.ads		20210520051132 0b705ca5 system.concat_3%s
@@ -104,8 +104,8 @@ X 10 a-textio.ads
 58K13*Text_IO 725e16 17|1w10 2r9
 506U14*Put_Line 17|11s10 24s10
 X 16 monitorcorda.ads
-1K9*MonitorCorda 15l5 15e17 17|4b14 38l5 38t17
-3W19*Corda 10E7 13l8 13e13 17|6b19 36l8 36t13
+1K9*MonitorCorda 15l5 15e17 17|4b14 34l5 34t17
+3W19*Corda 10E7 13l8 13e13 17|6b19 32l8 32t13
 4Y13 goSud 17|8b13 12l11 12t16
 5Y13 goNord 17|21b13 25l11 25t17
 6U17 arriveNord 17|28b17 31l11 31t21

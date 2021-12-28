@@ -29,10 +29,6 @@ package body MonitorCorda is
       begin
          babuinsALaCordaS:=babuinsALaCordaS-1;
       end arriveNord;
-
-
-
-
    end Corda;
 
 end MonitorCorda;

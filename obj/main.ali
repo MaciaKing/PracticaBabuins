@@ -27,18 +27,21 @@ RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U main%b		main.adb		e14a47d5 NE OO SU
+U main%b		main.adb		4fbeff32 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
 Z ada.real_time%s	a-reatim.adb		a-reatim.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W monitorcorda%s	monitorcorda.adb	monitorcorda.ali
-Z system%s		system.ads		system.ali
+W system%s		system.ads		system.ali
 Z system.concat_3%s	s-conca3.adb		s-conca3.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
 Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
@@ -54,6 +57,9 @@ D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
 D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20210520051130 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051130 5984dff3 ada.numerics.discrete_random%s
+D a-nudira.adb		20210520051130 0bfd6ec4 ada.numerics.discrete_random%b
 D a-reatim.ads		20210520051128 0240fc73 ada.real_time%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
@@ -66,7 +72,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20211217152214 fd94bf57 main%b
+D main.adb		20211228171756 0ae4d843 main%b
 D monitorcorda.ads	20211220143402 b22a2def monitorcorda%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
@@ -76,11 +82,16 @@ D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
 D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051134 525c30c6 system.image_u%s
 D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
+D s-imguns.ads		20210520051134 0e4da2ac system.img_uns%s
 D s-multip.ads		20210520051134 38ac9f73 system.multiprocessors%s
 D s-osinte.ads		20210520051128 97504df8 system.os_interface%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-rannum.adb		20210520051134 2631917b system.random_numbers%b
+D s-ransee.ads		20210520051134 01a57b33 system.random_seed%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
 D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
 D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
@@ -99,50 +110,73 @@ D s-tasren.ads		20210520051128 a67a9949 system.tasking.rendezvous%s
 D s-tassta.ads		20210520051128 cca55c94 system.tasking.stages%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D s-win32.ads		20210520051136 15ac53fb system.win32%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 6 11 none]
-G r s corda [main standard 6 11 none] [cordaVIP monitorcorda 3 4 none]
-G r o none [main standard 6 11 none] [gosud monitorcorda__corda 4 13 none]
-G r p none [main standard 6 11 none] [arrivesud monitorcorda__corda 7 17 none]
-G r o none [main standard 6 11 none] [gonord monitorcorda__corda 5 13 none]
-G r p none [main standard 6 11 none] [arrivenord monitorcorda__corda 6 17 none]
+G c Z b b [main standard 8 11 none]
+G r s corda [main standard 8 11 none] [cordaVIP monitorcorda 3 4 none]
+G r o none [main standard 8 11 none] [gosud monitorcorda__corda 4 13 none]
+G r p none [main standard 8 11 none] [arrivesud monitorcorda__corda 7 17 none]
+G r o none [main standard 8 11 none] [gonord monitorcorda__corda 5 13 none]
+G r p none [main standard 8 11 none] [arrivenord monitorcorda__corda 6 17 none]
 X 1 ada.ads
-16K9*Ada 20e8 19|1r6 2r5
-X 13 a-textio.ads
-58K13*Text_IO 725e16 19|1w10 2r9
-506U14*Put_Line 19|22s10 25s10 27s7 43s10 46s10 48s7 59s8 64s8
-X 19 main.adb
-6U11*Main 6b11 68l5 68t9
-8w4 c{20|3W19} 21r10 24r10 42r10 45r10
-10T14 babuiNord 12l8 12e17 14b14 28l8 28t17 52r39
-11Y13 Start 11>19 17b14 19l11 19t16 60s25
-11i19 Idx{integer} 18r19
-15i7 My_Idx{integer} 18m10 22r29 25r29 27r26
-17i21 Idx{integer}
-20i11 i{integer}
-31T14 babuiSud 33l8 33e16 35b14 49l8 49t16 53r38
-32Y13 Start 32>19 38b14 40l11 40t16 65s24
-32i19 Idx{integer} 39r19
-36i7 My_Idx{integer} 39m10 43r33 46r33 48r29
-38i21 Idx{integer}
-41i11 i{integer}
-52A9 tbabuiNord(10T14)<integer> 54r17
-53A9 tbabuiSud(31T14)<integer> 55r16
-54a4 babuinsNord{52A9} 60r8
-55a4 babuinsSud{53A9} 65r8
-58i8 idx{integer} 59r49 60r20 60r31
-63i8 idx{integer} 64r53 65r19 65r30
-X 20 monitorcorda.ads
-1K9*MonitorCorda 19|3w6 4r5 20|15e17
-3W19*Corda 19|8r7 20|13e13
-4Y13 goSud 19|21s12
-5Y13 goNord 19|42s12
-6U17 arriveNord 19|45s12
-7U17 arriveSud 19|24s12
-X 37 s-stausa.ads
+16K9*Ada 20e8 22|1r6 2r5 5r6 14r29
+X 7 a-numeri.ads
+16K13*Numerics 35e17 22|5r10 14r33
+X 8 a-nudira.ads
+44k22*Discrete_Random 81e33 22|5w19 14r42
+50R9 Generator<39|65R9> 22|16r12[14]
+52V13 Random{22|13I10} 22|20s15[14]
+61U14 Reset<39|103p14> 22|19s7[14]
+X 9 a-nudira.adb
+53V16 Random[39|86]{22|13I10} 40|402b13[22|14]
+65V16 Random[39|86]{22|13I10} 40|402b13[22|14]
+X 16 a-textio.ads
+58K13*Text_IO 725e16 22|1w10 2r9
+506U14*Put_Line 22|38s10 42s10 46s7 62s10 66s10 70s7 83s8 88s8
+X 18 interfac.ads
+79M9*Unsigned_32
+82M9*Unsigned_64
+X 22 main.adb
+8U11*Main 8b11 92l5 92t9
+10w4 c{23|3W19} 37r10 41r10 61r10 65r10
+12U14 esperaRandom 12b14 22l8 22t20 40s10 44s10 64s10 68s10
+13I10 randRange<integer> 14r58 17r14
+14K13 Rand_Int[8|44] 15r9
+16r7 gen{8|50R9[14]} 19r13 20r22
+17i7 randV{13I10} 20m7 21r22
+26T14 babuiNord 28l8 28e17 30b14 47l8 47t17 76r39
+27Y13 Start 27>19 33b14 35l11 35t16 84s25
+27i19 Idx{integer} 34r19
+31i7 My_Idx{integer} 34m10 38r29 42r29 46r26
+33i21 Idx{integer}
+36i11 i{integer}
+50T14 babuiSud 52l8 52e16 54b14 71l8 71t16 77r38
+51Y13 Start 51>19 57b14 59l11 59t16 89s24
+51i19 Idx{integer} 58r19
+55i7 My_Idx{integer} 58m10 62r33 66r33 70r29
+57i21 Idx{integer}
+60i11 i{integer}
+76A9 tbabuiNord(26T14)<integer> 78r17
+77A9 tbabuiSud(50T14)<integer> 79r16
+78a4 babuinsNord{76A9} 84r8
+79a4 babuinsSud{77A9} 89r8
+82i8 idx{integer} 83r49 84r20 84r31
+87i8 idx{integer} 88r53 89r19 89r30
+X 23 monitorcorda.ads
+1K9*MonitorCorda 22|3w6 4r5 23|15e17
+3W19*Corda 22|10r7 23|13e13
+4Y13 goSud 22|37s12
+5Y13 goNord 22|61s12
+6U17 arriveNord 22|65s12
+7U17 arriveSud 22|41s12
+X 39 s-rannum.ads
+77V13*Random{18|79M9} 40|224i21
+78V13*Random{18|82M9} 40|224i21
+X 45 s-stausa.ads
 208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
 273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
 
