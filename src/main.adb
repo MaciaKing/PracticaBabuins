@@ -6,7 +6,6 @@ with ada.numerics.discrete_random;
 
 
 procedure Main is
-
    c: corda;
 
    procedure esperaRandom  is
@@ -44,8 +43,8 @@ procedure Main is
       accept Start (Idx : in Integer) do
          My_Idx:= Idx;
       end Start;
+      Put_Line ("BON DIA som el babuí nord " & My_Idx'Img & " vaig cap el Sud" );
       for i in 1..3 loop
-         Put_Line ("BON DIA som el babuí nord " & My_Idx'Img & " vaig cap el Sud" );
          c.goSud;
          Put_Line ("NORD "& My_Idx'Img &": És a la corda i travessa cap al Sud");
          esperaRandom;--temps espera random demunt la corda
@@ -67,8 +66,8 @@ procedure Main is
       accept Start (Idx : in Integer) do
          My_Idx:= Idx;
       end Start;
+      Put_Line ("     BON DIA som el babuí sud " & My_Idx'Img & " vaig cap el Nord" );
       for i in 1..3 loop
-         Put_Line ("     BON DIA som el babuí sud " & My_Idx'Img & " vaig cap el Nord" );
          c.goNord;
          Put_Line ("     SUD "& My_Idx'Img &": És a la corda i travessa cap al Nord");
          esperaRandom; --temps espera random demunt la corda
@@ -85,22 +84,8 @@ procedure Main is
    babuinsNord: tbabuiNord;
    babuinsSud: tbabuiSud;
 begin
-   --Inicialitzam babuins del Nord
-  -- for idx in 1..5 loop
-  --     Put_Line ("BON DIA som el babuí nord " & idx'Img & " vaig cap el Sud" );
-   --    babuinsNord(idx).Start(idx);
-   --end loop;
-
-   --Inicialitzam babuins del Sud
-  -- for idx in 1..5 loop
-    --   Put_Line ("     BON DIA som el babuí sud " & idx'Img & " vaig cap el Nord" );
-      -- babuinsSud(idx).Start(idx);
-  -- end loop;
-
    for idx in 1..5 loop
       babuinsNord(idx).Start(idx);
       babuinsSud(idx).Start(idx);
    end loop;
-
-
 end Main;

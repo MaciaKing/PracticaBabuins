@@ -27,7 +27,7 @@ RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 RV MAX_ENTRY_QUEUE_LENGTH=1+
 
-U main%b		main.adb		b80893f9 NE OO SU
+U main%b		main.adb		d640cd8a NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -72,7 +72,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20211229075224 fd52b488 main%b
+D main.adb		20211229081628 931aeafb main%b
 D monitorcorda.ads	20211220143402 b22a2def monitorcorda%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
@@ -123,60 +123,60 @@ G r p none [main standard 8 11 none] [arrivesud monitorcorda__corda 7 17 none]
 G r o none [main standard 8 11 none] [gonord monitorcorda__corda 5 13 none]
 G r p none [main standard 8 11 none] [arrivenord monitorcorda__corda 6 17 none]
 X 1 ada.ads
-16K9*Ada 20e8 22|1r6 2r5 5r6 14r29 26r29
+16K9*Ada 20e8 22|1r6 2r5 5r6 13r29 25r29
 X 7 a-numeri.ads
-16K13*Numerics 35e17 22|5r10 14r33 26r33
+16K13*Numerics 35e17 22|5r10 13r33 25r33
 X 8 a-nudira.ads
-44k22*Discrete_Random 81e33 22|5w19 14r42 26r42
-50R9 Generator<39|65R9> 22|16r12[14] 28r12[26]
-52V13 Random{22|13I10} 22|20s15[14] 32s15[26]
-61U14 Reset<39|103p14> 22|19s7[14] 31s7[26]
+44k22*Discrete_Random 81e33 22|5w19 13r42 25r42
+50R9 Generator<39|65R9> 22|15r12[13] 27r12[25]
+52V13 Random{22|12I10} 22|19s15[13] 31s15[25]
+61U14 Reset<39|103p14> 22|18s7[13] 30s7[25]
 X 9 a-nudira.adb
-53V16 Random[39|86]{22|13I10} 40|402b13[22|14]
-65V16 Random[39|86]{22|25I10} 40|402b13[22|26]
+53V16 Random[39|86]{22|12I10} 40|402b13[22|13]
+65V16 Random[39|86]{22|24I10} 40|402b13[22|25]
 X 16 a-textio.ads
 58K13*Text_IO 725e16 22|1w10 2r9
-506U14*Put_Line 22|48s10 50s10 53s10 56s7 71s10 73s10 76s10 79s7
+506U14*Put_Line 22|46s7 49s10 52s10 55s7 69s7 72s10 75s10 78s7
 X 18 interfac.ads
 79M9*Unsigned_32
 82M9*Unsigned_64
 X 22 main.adb
-8U11*Main 8b11 106l5 106t9
-10w4 c{23|3W19} 49r10 52r10 72r10 75r10
-12U14 esperaRandom 12b14 22l8 22t20 51s10 74s10
-13I10 randRange<integer> 14r58 17r14
-14K13 Rand_Int[8|44] 15r9
-16r7 gen{8|50R9[14]} 19r13 20r22
-17i7 randV{13I10} 20m7 21r22
-24U15 esperaVolta 24b15 34l8 34t19 54s10 77s10
-25I10 randRange<integer> 26r58 29r14
-26K13 Rand_Int[8|44] 27r9
-28r7 gen{8|50R9[26]} 31r13 32r22
-29i7 randV{25I10} 32m7 33r22
-37T14 babuiNord 39l8 39e17 41b14 57l8 57t17 83r39
-38Y13 Start 38>19 44b14 46l11 46t16 101s24
-38i19 Idx{integer} 45r19
-42i7 My_Idx{integer} 45m10 48r51 50r29 53r29 56r26
-44i21 Idx{integer}
+8U11*Main 8b11 91l5 91t9
+9w4 c{23|3W19} 48r10 51r10 71r10 74r10
+11U14 esperaRandom 11b14 21l8 21t20 50s10 73s10
+12I10 randRange<integer> 13r58 16r14
+13K13 Rand_Int[8|44] 14r9
+15r7 gen{8|50R9[13]} 18r13 19r22
+16i7 randV{12I10} 19m7 20r22
+23U15 esperaVolta 23b15 33l8 33t19 53s10 76s10
+24I10 randRange<integer> 25r58 28r14
+25K13 Rand_Int[8|44] 26r9
+27r7 gen{8|50R9[25]} 30r13 31r22
+28i7 randV{24I10} 31m7 32r22
+36T14 babuiNord 38l8 38e17 40b14 56l8 56t17 82r39
+37Y13 Start 37>19 43b14 45l11 45t16 88s24
+37i19 Idx{integer} 44r19
+41i7 My_Idx{integer} 44m10 46r48 49r29 52r29 55r26
+43i21 Idx{integer}
 47i11 i{integer}
-60T14 babuiSud 62l8 62e16 64b14 80l8 80t16 84r38
-61Y13 Start 61>19 67b14 69l11 69t16 102s23
-61i19 Idx{integer} 68r19
-65i7 My_Idx{integer} 68m10 71r55 73r33 76r33 79r29
-67i21 Idx{integer}
+59T14 babuiSud 61l8 61e16 63b14 79l8 79t16 83r38
+60Y13 Start 60>19 66b14 68l11 68t16 89s23
+60i19 Idx{integer} 67r19
+64i7 My_Idx{integer} 67m10 69r52 72r33 75r33 78r29
+66i21 Idx{integer}
 70i11 i{integer}
-83A9 tbabuiNord(37T14)<integer> 85r17
-84A9 tbabuiSud(60T14)<integer> 86r16
-85a4 babuinsNord{83A9} 101r7
-86a4 babuinsSud{84A9} 102r7
-100i8 idx{integer} 101r19 101r30 102r18 102r29
+82A9 tbabuiNord(36T14)<integer> 84r17
+83A9 tbabuiSud(59T14)<integer> 85r16
+84a4 babuinsNord{82A9} 88r7
+85a4 babuinsSud{83A9} 89r7
+87i8 idx{integer} 88r19 88r30 89r18 89r29
 X 23 monitorcorda.ads
 1K9*MonitorCorda 22|3w6 4r5 23|15e17
-3W19*Corda 22|10r7 23|13e13
-4Y13 goSud 22|49s12
-5Y13 goNord 22|72s12
-6U17 arriveNord 22|75s12
-7U17 arriveSud 22|52s12
+3W19*Corda 22|9r7 23|13e13
+4Y13 goSud 22|48s12
+5Y13 goNord 22|71s12
+6U17 arriveNord 22|74s12
+7U17 arriveSud 22|51s12
 X 39 s-rannum.ads
 77V13*Random{18|79M9} 40|224i21
 78V13*Random{18|82M9} 40|224i21
