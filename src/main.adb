@@ -10,7 +10,7 @@ procedure Main is
    c: corda;
 
    procedure esperaRandom  is
-    type randRange is new Integer range 5..10;
+    type randRange is new Integer range 1..10;
     package Rand_Int is new ada.numerics.discrete_random(randRange);
     use Rand_Int;
       gen: Generator;
@@ -21,6 +21,17 @@ procedure Main is
       delay Duration(randV);
    end esperaRandom;
 
+    procedure esperaVolta  is
+    type randRange is new Integer range 10..20;
+    package Rand_Int is new ada.numerics.discrete_random(randRange);
+    use Rand_Int;
+      gen: Generator;
+      randV: randRange;
+   begin
+      reset(gen);
+      randV:= random(gen);
+      delay Duration(randV);
+   end esperaVolta;
 
 
    task type babuiNord is
@@ -34,14 +45,13 @@ procedure Main is
          My_Idx:= Idx;
       end Start;
       for i in 1..3 loop
+         Put_Line ("BON DIA som el babuí nord " & My_Idx'Img & " vaig cap el Sud" );
          c.goSud;
          Put_Line ("NORD "& My_Idx'Img &": És a la corda i travessa cap al Sud");
-         --temps espera random demunt la corda
-         esperaRandom;
+         esperaRandom;--temps espera random demunt la corda
          c.arriveSud;
          Put_Line ("NORD "& My_Idx'Img &" ha arribat a la vorera");
-         --delay da la vuelta
-         esperaRandom;
+         esperaVolta; --delay da la vuelta
       end loop;
       Put_Line ("NORD "& My_Idx'Img &": Fa la volta 3 de 3 i acaba !!!!!!");
    end babuiNord;
@@ -58,19 +68,16 @@ procedure Main is
          My_Idx:= Idx;
       end Start;
       for i in 1..3 loop
+         Put_Line ("     BON DIA som el babuí sud " & My_Idx'Img & " vaig cap el Nord" );
          c.goNord;
          Put_Line ("     SUD "& My_Idx'Img &": És a la corda i travessa cap al Nord");
-         --temps espera random demunt la corda
-         esperaRandom;
+         esperaRandom; --temps espera random demunt la corda
          c.arriveNord;
          Put_Line ("     SUD "& My_Idx'Img &" ha arribat a la vorera");
-         --delay da la vuelta
-         esperaRandom;
+         esperaVolta;--delay da la vuelta
       end loop;
       Put_Line("     SUD "& My_Idx'Img &" Fa la volta 3 de 3 i acaba !!!!!");
    end babuiSud;
-
-
 
    --Variables globals
    type tbabuiNord is array (1..5) of babuiNord;
@@ -79,15 +86,21 @@ procedure Main is
    babuinsSud: tbabuiSud;
 begin
    --Inicialitzam babuins del Nord
-   for idx in 1..5 loop
-       Put_Line ("BON DIA som el babuí nord " & idx'Img & " vaig cap el Sud" );
-       babuinsNord(idx).Start(idx);
-   end loop;
+  -- for idx in 1..5 loop
+  --     Put_Line ("BON DIA som el babuí nord " & idx'Img & " vaig cap el Sud" );
+   --    babuinsNord(idx).Start(idx);
+   --end loop;
 
    --Inicialitzam babuins del Sud
+  -- for idx in 1..5 loop
+    --   Put_Line ("     BON DIA som el babuí sud " & idx'Img & " vaig cap el Nord" );
+      -- babuinsSud(idx).Start(idx);
+  -- end loop;
+
    for idx in 1..5 loop
-       Put_Line ("     BON DIA som el babuí sud " & idx'Img & " vaig cap el Nord" );
-       babuinsSud(idx).Start(idx);
+      babuinsNord(idx).Start(idx);
+      babuinsSud(idx).Start(idx);
    end loop;
+
 
 end Main;
