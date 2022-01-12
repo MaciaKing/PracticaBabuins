@@ -4,10 +4,11 @@ with MonitorCorda;
 use MonitorCorda;
 with ada.numerics.discrete_random;
 
-
+-- Macià Salvà Salvà i Juan Francisco Hernandez Fernandez
 procedure Main is
    c: corda;
 
+   --Delay demunt montanya
    procedure esperaRandom  is
     type randRange is new Integer range 1..10;
     package Rand_Int is new ada.numerics.discrete_random(randRange);
@@ -20,6 +21,7 @@ procedure Main is
       delay Duration(randV);
    end esperaRandom;
 
+   --Delay volta
     procedure esperaVolta  is
     type randRange is new Integer range 10..20;
     package Rand_Int is new ada.numerics.discrete_random(randRange);
@@ -73,7 +75,7 @@ procedure Main is
          esperaRandom; --temps espera random demunt la corda
          c.arriveNord;
          Put_Line ("     SUD "& My_Idx'Img &" ha arribat a la vorera");
-         esperaVolta;--delay da la vuelta
+         esperaVolta; --delay da la vuelta
       end loop;
       Put_Line("     SUD "& My_Idx'Img &" Fa la volta 3 de 3 i acaba !!!!!");
    end babuiSud;
